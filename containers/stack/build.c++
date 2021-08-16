@@ -13,12 +13,9 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    
-    ShinyStack.push("great!");
-    ShinyStack.push("works");
-    ShinyStack.push("stack");
-    ShinyStack.push("templated");
-    ShinyStack.push("so my");
+    const std::string sentense[5] = {"so my", "templated", "stack", "works", "great!"};
+    for (auto item : sentense)
+        ShinyStack.push(item);
     ShinyStack.print();
     std::cout << "stack size: " << ShinyStack.size() << '\n';
     ShinyStack.pop();

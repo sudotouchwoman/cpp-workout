@@ -1,12 +1,5 @@
 #include <iostream>
-
-namespace containers
-{
-    template <typename T>
-    class vector;
-    template <typename T>
-    class allocator;
-};
+#include "../containers.h"
 
 template <typename T>
 class containers::vector
@@ -43,6 +36,7 @@ public:
     void push_at(const T &, const size_t);
     void erase(const size_t);
     void erase();
+    void swap(const size_t, const size_t);
 
     const T* begin();
     const T* end();
@@ -146,6 +140,24 @@ void containers::vector<T>::erase()
     length = 0;
     mem_source->deallocate(data, capacity);
     data = mem_source->allocate(capacity);
+}
+
+template <typename T>
+void containers::vector<T>::swap(const size_t x, const size_t y)
+{
+    if (inside(x) && inside(y))
+        if (x != y)
+        {
+            // temporary variable is actually quicker, but we can do this without it
+            // data[x] ^= data[y];
+            // data[y] ^= data[x];
+            // data[x] ^= data[y];
+            T tmp = data[x];
+            data[x] = data[y];
+            data[y] = tmp;
+            return;
+        }
+    return;
 }
 
 template <typename T>

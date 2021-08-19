@@ -1,10 +1,6 @@
+#include "../containers.h"
 #include <iostream>
 #include <exception>
-
-namespace containers
-{
-    template <typename T> class linkedlist;
-};
 
 template <typename T>
 class containers::linkedlist

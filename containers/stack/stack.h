@@ -1,10 +1,6 @@
 #include <iostream>
 #include <exception>
-
-namespace containers
-{
-    template <typename T> class stack;
-};
+#include "../containers.h"
 
 template <typename T>
 class containers::stack
